@@ -77,14 +77,9 @@ static const char *termcmd[]  = 	{ "kitty", "/home/radish", NULL };
 static const char *screenshot[] =	{ "/home/radish/.scripts/ss.sh", NULL };
 static const char *screenshot_selection[] =	{ "/home/radish/.scripts/ss-sel.sh", NULL };
 static const char *killcmd[] = 		{ "/home/radish/.scripts/kill.sh", d_bg, d_fg, s_bg, s_fg, NULL };
-static const char *mediacmd[] = 	{ "/home/radish/.scripts/play-media.sh", d_bg, d_fg, s_bg, s_fg, NULL };
 static const char *volupcmd[] =		{ "/home/radish/.scripts/vol.sh", "+5%", NULL };
 static const char *voldowncmd[] =	{ "/home/radish/.scripts/vol.sh", "-5%", NULL };
 static const char *volmutecmd[] =	{ "/home/radish/.scripts/volmute.sh", NULL };
-static const char *brupcmd[] =		{ "/home/radish/.scripts/brightness.sh", "5%+", NULL };
-static const char *brdowncmd[] =	{ "/home/radish/.scripts/brightness.sh", "5%-", NULL };
-static const char *lockcmd[] =		{ "i3lockmore", "-u", "--blur", "--lock-icon", "/home/radish/.wallpapers/lock-icon.png" };
-static const char *touchpadtoggle[]={ "/home/radish/.scripts/toggle-touchpad.sh" };
 static const char *vpntoggle[] =    { "/home/radish/.scripts/toggle-vpn.sh" };
 
 static const Key keys[] = {
@@ -108,8 +103,6 @@ static const Key keys[] = {
 	{ 0, XF86XK_AudioMute, 					   spawn, 		   {.v = volmutecmd} },
 	{ 0, XF86XK_AudioLowerVolume, 			   spawn, 		   {.v = voldowncmd} },
 	{ 0, XF86XK_AudioRaiseVolume, 			   spawn, 		   {.v = volupcmd} },
-	{ 0, XF86XK_MonBrightnessDown, 			   spawn, 		   {.v = brdowncmd} },
-	{ 0, XF86XK_MonBrightnessUp, 			   spawn, 		   {.v = brupcmd} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,         				XK_q,      killclient,     {0} },
@@ -117,7 +110,6 @@ static const Key keys[] = {
 	{ MODKEY,						XK_s,	   spawn,		   {.v = screenshot_selection} },
 	{ MODKEY|ShiftMask,				XK_s,	   spawn,		   {.v = screenshot} },
 	{ MODKEY|ShiftMask,				XK_q,	   spawn,		   {.v = killcmd} },
-	{ 0, XF86XK_Messenger, 					   spawn,		   {.v = touchpadtoggle} },
 	{ 0, XF86XK_Display,					   spawn,		   {.v = vpntoggle} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
@@ -125,7 +117,6 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-//	{ MODKEY,						XK_l,	   spawn,		   {.v = lockcmd} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
