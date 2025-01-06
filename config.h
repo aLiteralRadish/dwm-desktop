@@ -81,6 +81,7 @@ static const char *volupcmd[] =		{ "/home/radish/.scripts/vol.sh", "+5%", NULL }
 static const char *voldowncmd[] =	{ "/home/radish/.scripts/vol.sh", "-5%", NULL };
 static const char *volmutecmd[] =	{ "/home/radish/.scripts/volmute.sh", NULL };
 static const char *vpntoggle[] =    { "/home/radish/.scripts/toggle-vpn.sh" };
+static const char *voltoggle[] =	{ "/home/radish/.scripts/toggle-sink.sh" };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -103,6 +104,7 @@ static const Key keys[] = {
 	{ 0, XF86XK_AudioMute, 					   spawn, 		   {.v = volmutecmd} },
 	{ 0, XF86XK_AudioLowerVolume, 			   spawn, 		   {.v = voldowncmd} },
 	{ 0, XF86XK_AudioRaiseVolume, 			   spawn, 		   {.v = volupcmd} },
+	{ MODKEY,						XK_n,	   spawn,		   {.v = voltoggle} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,         				XK_q,      killclient,     {0} },
@@ -110,7 +112,7 @@ static const Key keys[] = {
 	{ MODKEY,						XK_s,	   spawn,		   {.v = screenshot_selection} },
 	{ MODKEY|ShiftMask,				XK_s,	   spawn,		   {.v = screenshot} },
 	{ MODKEY|ShiftMask,				XK_q,	   spawn,		   {.v = killcmd} },
-	{ 0, XF86XK_Display,					   spawn,		   {.v = vpntoggle} },
+	{ MODKEY,						XK_v,	   spawn,		   {.v = vpntoggle} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
